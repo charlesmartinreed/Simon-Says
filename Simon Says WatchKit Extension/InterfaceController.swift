@@ -9,9 +9,11 @@
 import WatchKit
 import Foundation
 
-
 class InterfaceController: WKInterfaceController {
 
+    //MARK:- IBOutlets
+    
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -27,5 +29,19 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
+    //MARK:- IBActions
+    @IBAction func redTapped() {
+    }
+    
+    @IBAction func greenTapped() {
+    }
+    
+    @IBAction func blueTapped() {
+    }
+    
+    @IBAction func yellowTapped() {
+    }
+    
+    
 }
