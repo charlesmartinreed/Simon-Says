@@ -51,6 +51,12 @@
                             </items>
                         </group>
                     </items>
+                    <connections>
+                        <outlet property="blueButton" destination="3p2-2Z-1uh" id="FIo-6z-dtl"/>
+                        <outlet property="greenButton" destination="opF-Cf-HI8" id="1CT-To-k84"/>
+                        <outlet property="redButton" destination="ACK-4O-fzc" id="3iL-LP-BcA"/>
+                        <outlet property="yellowButton" destination="vlL-Zk-Fl2" id="J4G-ER-ss6"/>
+                    </connections>
                 </controller>
             </objects>
         </scene>
