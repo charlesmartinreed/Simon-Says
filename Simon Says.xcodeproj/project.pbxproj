@@ -16,7 +16,7 @@
 		8C1F7C0321E5356C0076D6DC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C0121E5356C0076D6DC /* Interface.storyboard */; };
 		8C1F7C0521E5356C0076D6DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C0421E5356C0076D6DC /* Assets.xcassets */; };
 		8C1F7C0C21E5356C0076D6DC /* Simon Says WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C1F7C0B21E5356C0076D6DC /* Simon Says WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8C1F7C1121E5356C0076D6DC /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F7C1021E5356C0076D6DC /* InterfaceController.swift */; };
+		8C1F7C1121E5356C0076D6DC /* GameScreenInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F7C1021E5356C0076D6DC /* GameScreenInterfaceController.swift */; };
 		8C1F7C1321E5356C0076D6DC /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F7C1221E5356C0076D6DC /* ExtensionDelegate.swift */; };
 		8C1F7C1521E5356D0076D6DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C1421E5356D0076D6DC /* Assets.xcassets */; };
 		8C1F7C2921E5517B0076D6DC /* greenButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2521E5517B0076D6DC /* greenButtonFX.wav */; };
@@ -31,6 +31,7 @@
 		8C1F7C3221E5517B0076D6DC /* redButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */; };
 		8C1F7C3321E5517B0076D6DC /* redButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */; };
 		8C1F7C3421E5517B0076D6DC /* redButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */; };
+		8CB37A9521E68232009FBD4F /* IntroScreenInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB37A9421E68232009FBD4F /* IntroScreenInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +89,7 @@
 		8C1F7C0421E5356C0076D6DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C1F7C0621E5356C0076D6DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C1F7C0B21E5356C0076D6DC /* Simon Says WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Simon Says WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C1F7C1021E5356C0076D6DC /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		8C1F7C1021E5356C0076D6DC /* GameScreenInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenInterfaceController.swift; sourceTree = "<group>"; };
 		8C1F7C1221E5356C0076D6DC /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		8C1F7C1421E5356D0076D6DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C1F7C1621E5356D0076D6DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		8C1F7C2621E5517B0076D6DC /* yellowButtonFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = yellowButtonFX.wav; sourceTree = "<group>"; };
 		8C1F7C2721E5517B0076D6DC /* blueButtonFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blueButtonFX.wav; sourceTree = "<group>"; };
 		8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = redButtonFX.wav; sourceTree = "<group>"; };
+		8CB37A9421E68232009FBD4F /* IntroScreenInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreenInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +165,8 @@
 		8C1F7C0F21E5356C0076D6DC /* Simon Says WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				8C1F7C1021E5356C0076D6DC /* InterfaceController.swift */,
+				8CB37A9421E68232009FBD4F /* IntroScreenInterfaceController.swift */,
+				8C1F7C1021E5356C0076D6DC /* GameScreenInterfaceController.swift */,
 				8C1F7C1221E5356C0076D6DC /* ExtensionDelegate.swift */,
 				8C1F7C1421E5356D0076D6DC /* Assets.xcassets */,
 				8C1F7C1621E5356D0076D6DC /* Info.plist */,
@@ -341,7 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1F7C1321E5356C0076D6DC /* ExtensionDelegate.swift in Sources */,
-				8C1F7C1121E5356C0076D6DC /* InterfaceController.swift in Sources */,
+				8C1F7C1121E5356C0076D6DC /* GameScreenInterfaceController.swift in Sources */,
+				8CB37A9521E68232009FBD4F /* IntroScreenInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sgB-8w-Ciu">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--GameScreen-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller spacing="2" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Simon_Says_WatchKit_App" customModuleProvider="target">
+                <controller identifier="GameScreen" spacing="2" id="AgC-eL-Hgc" customClass="GameScreenInterfaceController" customModule="Simon_Says_WatchKit_Extension">
                     <items>
                         <group height="0.5" alignment="left" id="d9V-Fu-Mfv">
                             <items>
@@ -59,6 +59,27 @@
                     </connections>
                 </controller>
             </objects>
+        </scene>
+        <!--IntroScreen-->
+        <scene sceneID="l3L-8X-vtS">
+            <objects>
+                <controller identifier="IntroScreen" id="sgB-8w-Ciu" customClass="IntroScreenInterfaceController" customModule="Simon_Says_WatchKit_Extension">
+                    <items>
+                        <label width="0.80000000000000004" height="0.5" alignment="center" text="Simon Says" textAlignment="center" minimumScaleFactor="0.5" id="NcA-nV-rSo">
+                            <color key="textColor" red="0.90196078431372551" green="0.10980392156862745" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                        </label>
+                        <button width="0.80000000000000004" height="0.29999999999999999" alignment="center" verticalAlignment="bottom" title="Start Game" id="uSl-qx-8YZ">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.38823529411764707" green="0.36862745098039218" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="startGameButtonTapped" destination="sgB-8w-Ciu" id="0kA-BZ-6yP"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-194" y="31"/>
         </scene>
     </scenes>
 </document>

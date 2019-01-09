@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import AVFoundation
 
-class InterfaceController: WKInterfaceController {
+class GameScreenInterfaceController: WKInterfaceController {
 
     //MARK:- IBOutlets
     @IBOutlet weak var redButton: WKInterfaceButton!
@@ -156,8 +156,11 @@ class InterfaceController: WKInterfaceController {
             let playAgain = WKAlertAction(title: "Play Again?", style: .default) {
                 self.startNewGame()
             }
+            let quitGame = WKAlertAction(title: "Quit", style: .default, handler: {
+                self.pushController(withName: "IntroScreen", context: nil)
+            })
             
-            presentAlert(withTitle: "Game Over!", message: "You scored \(sequence.count - 1).", preferredStyle: .actionSheet, actions: [playAgain])
+            presentAlert(withTitle: "Game Over!", message: "You scored \(sequence.count - 1).", preferredStyle: .actionSheet, actions: [playAgain, quitGame])
         }
     }
     
