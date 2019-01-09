@@ -29,6 +29,9 @@ class GameScreenInterfaceController: WKInterfaceController {
             }
         }
     }
+    
+    var highScore: Int!
+    
     //which buttons are in this round's simon sequence and the indices of the ones the user must tap, respectively
     var sequence = [WKInterfaceButton]()
     var sequenceSound = [String]()
@@ -48,6 +51,8 @@ class GameScreenInterfaceController: WKInterfaceController {
     //somewhat equivalent to viewDidLoad()
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        highScore = UserDefaults.standard.value(forKey: "highScore") as? Int ?? 0
         
         initializeAVSession()
         startNewGame()
@@ -101,7 +106,7 @@ class GameScreenInterfaceController: WKInterfaceController {
             })
         }
     }
-    
+
     func addToSequence() {
         //add a random button to the sequence
         //we're explicitly stating type here to remove the optionaity that would normally be present
@@ -153,6 +158,9 @@ class GameScreenInterfaceController: WKInterfaceController {
             }
         } else {
             //wrong input from player, game over
+            //grab score, save new high score if necessary, display score to user
+            let roundScore = sequence.count - 1
+            
             let playAgain = WKAlertAction(title: "Play Again?", style: .default) {
                 self.startNewGame()
             }
@@ -160,7 +168,16 @@ class GameScreenInterfaceController: WKInterfaceController {
                 self.pushController(withName: "IntroScreen", context: nil)
             })
             
-            presentAlert(withTitle: "Game Over!", message: "You scored \(sequence.count - 1).", preferredStyle: .actionSheet, actions: [playAgain, quitGame])
+            if roundScore > highScore {
+                highScore = roundScore
+                UserDefaults.standard.set("\(roundScore)", forKey: "highScore")
+                
+                presentAlert(withTitle: "A new high score!", message: "You scored \(roundScore).", preferredStyle: .actionSheet, actions: [playAgain, quitGame])
+            } else {
+                presentAlert(withTitle: "Game Over!", message: "You scored \(roundScore).", preferredStyle: .actionSheet, actions: [playAgain, quitGame])
+            }
+            
+            //presentAlert(withTitle: "Game Over!", message: "You scored \(roundScore).", preferredStyle: .actionSheet, actions: [playAgain, quitGame])
         }
     }
     
