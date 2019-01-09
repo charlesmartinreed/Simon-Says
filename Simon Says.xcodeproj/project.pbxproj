@@ -19,6 +19,18 @@
 		8C1F7C1121E5356C0076D6DC /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F7C1021E5356C0076D6DC /* InterfaceController.swift */; };
 		8C1F7C1321E5356C0076D6DC /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F7C1221E5356C0076D6DC /* ExtensionDelegate.swift */; };
 		8C1F7C1521E5356D0076D6DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C1421E5356D0076D6DC /* Assets.xcassets */; };
+		8C1F7C2921E5517B0076D6DC /* greenButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2521E5517B0076D6DC /* greenButtonFX.wav */; };
+		8C1F7C2A21E5517B0076D6DC /* greenButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2521E5517B0076D6DC /* greenButtonFX.wav */; };
+		8C1F7C2B21E5517B0076D6DC /* greenButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2521E5517B0076D6DC /* greenButtonFX.wav */; };
+		8C1F7C2C21E5517B0076D6DC /* yellowButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2621E5517B0076D6DC /* yellowButtonFX.wav */; };
+		8C1F7C2D21E5517B0076D6DC /* yellowButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2621E5517B0076D6DC /* yellowButtonFX.wav */; };
+		8C1F7C2E21E5517B0076D6DC /* yellowButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2621E5517B0076D6DC /* yellowButtonFX.wav */; };
+		8C1F7C2F21E5517B0076D6DC /* blueButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2721E5517B0076D6DC /* blueButtonFX.wav */; };
+		8C1F7C3021E5517B0076D6DC /* blueButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2721E5517B0076D6DC /* blueButtonFX.wav */; };
+		8C1F7C3121E5517B0076D6DC /* blueButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2721E5517B0076D6DC /* blueButtonFX.wav */; };
+		8C1F7C3221E5517B0076D6DC /* redButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */; };
+		8C1F7C3321E5517B0076D6DC /* redButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */; };
+		8C1F7C3421E5517B0076D6DC /* redButtonFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +92,10 @@
 		8C1F7C1221E5356C0076D6DC /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		8C1F7C1421E5356D0076D6DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C1F7C1621E5356D0076D6DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C1F7C2521E5517B0076D6DC /* greenButtonFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = greenButtonFX.wav; sourceTree = "<group>"; };
+		8C1F7C2621E5517B0076D6DC /* yellowButtonFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = yellowButtonFX.wav; sourceTree = "<group>"; };
+		8C1F7C2721E5517B0076D6DC /* blueButtonFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blueButtonFX.wav; sourceTree = "<group>"; };
+		8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = redButtonFX.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +139,7 @@
 		8C1F7BEC21E5356A0076D6DC /* Simon Says */ = {
 			isa = PBXGroup;
 			children = (
+				8C1F7C2421E5515A0076D6DC /* Sounds */,
 				8C1F7BED21E5356A0076D6DC /* AppDelegate.swift */,
 				8C1F7BEF21E5356A0076D6DC /* ViewController.swift */,
 				8C1F7BF121E5356A0076D6DC /* Main.storyboard */,
@@ -152,6 +169,17 @@
 				8C1F7C1621E5356D0076D6DC /* Info.plist */,
 			);
 			path = "Simon Says WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		8C1F7C2421E5515A0076D6DC /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F7C2721E5517B0076D6DC /* blueButtonFX.wav */,
+				8C1F7C2521E5517B0076D6DC /* greenButtonFX.wav */,
+				8C1F7C2821E5517B0076D6DC /* redButtonFX.wav */,
+				8C1F7C2621E5517B0076D6DC /* yellowButtonFX.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +256,11 @@
 					};
 					8C1F7C0A21E5356C0076D6DC = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -256,8 +289,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1F7C2921E5517B0076D6DC /* greenButtonFX.wav in Resources */,
 				8C1F7BF821E5356B0076D6DC /* LaunchScreen.storyboard in Resources */,
+				8C1F7C2F21E5517B0076D6DC /* blueButtonFX.wav in Resources */,
 				8C1F7BF521E5356B0076D6DC /* Assets.xcassets in Resources */,
+				8C1F7C3221E5517B0076D6DC /* redButtonFX.wav in Resources */,
+				8C1F7C2C21E5517B0076D6DC /* yellowButtonFX.wav in Resources */,
 				8C1F7BF321E5356A0076D6DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,8 +303,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1F7C3321E5517B0076D6DC /* redButtonFX.wav in Resources */,
+				8C1F7C2D21E5517B0076D6DC /* yellowButtonFX.wav in Resources */,
 				8C1F7C0521E5356C0076D6DC /* Assets.xcassets in Resources */,
 				8C1F7C0321E5356C0076D6DC /* Interface.storyboard in Resources */,
+				8C1F7C2A21E5517B0076D6DC /* greenButtonFX.wav in Resources */,
+				8C1F7C3021E5517B0076D6DC /* blueButtonFX.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +316,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1F7C2E21E5517B0076D6DC /* yellowButtonFX.wav in Resources */,
+				8C1F7C2B21E5517B0076D6DC /* greenButtonFX.wav in Resources */,
+				8C1F7C3421E5517B0076D6DC /* redButtonFX.wav in Resources */,
+				8C1F7C3121E5517B0076D6DC /* blueButtonFX.wav in Resources */,
 				8C1F7C1521E5356D0076D6DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

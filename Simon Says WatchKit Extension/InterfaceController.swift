@@ -8,6 +8,7 @@
 
 import WatchKit
 import Foundation
+import AVFoundation
 
 class InterfaceController: WKInterfaceController {
 
@@ -30,28 +31,43 @@ class InterfaceController: WKInterfaceController {
     }
     //which buttons are in this round's simon sequence and the indices of the ones the user must tap, respectively
     var sequence = [WKInterfaceButton]()
+    var sequenceSound = [String]()
+    
+    //var testSequence = [[WKInterfaceButton: String]]()
     var sequenceIndex = 0
+    var sequenceTimer = 0.8
+    
+    //sounds
+    var session = AVAudioSession()
+    var player = AVAudioPlayer()
+    let redFXPath = Bundle.main.path(forResource: "redButtonFX", ofType: "wav")!
+    let blueFXPath = Bundle.main.path(forResource: "blueButtonFX", ofType: "wav")!
+    let greenFXPath = Bundle.main.path(forResource: "greenButtonFX", ofType: "wav")!
+    let yellowFXPath = Bundle.main.path(forResource: "yellowButtonFX", ofType: "wav")!
     
     //somewhat equivalent to viewDidLoad()
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
+        initializeAVSession()
         startNewGame()
     }
     
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-    
     //MARK:- Game init methods
+    func initializeAVSession() {
+        //set up the session
+        let session = AVAudioSession.sharedInstance()
+        
+        do {
+            try session.setCategory(.playback, mode: .default, policy: .longForm, options: [])
+        } catch let error {
+            fatalError("Unable to set up audio session: \(error.localizedDescription)")
+        }
+    }
+    
     func startNewGame() {
         //clear the sequence and begin creation of a new one
+        //testSequence.removeAll()
         sequence.removeAll()
         addToSequence()
     }
@@ -66,18 +82,21 @@ class InterfaceController: WKInterfaceController {
         }
         
         //otherwise, move the sequence forward
-        let button = sequence[sequenceIndex]
+        let buttonTuple = (sequence[sequenceIndex], sequenceSound[sequenceIndex])
         sequenceIndex += 1
+        sequenceTimer *= 0.010
         
         //wait a fraction of a second before making the button flash
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             [weak self] in
-            //mark this button as being active
-            button.setTitle("•")
+            //mark this button as being active and play the corresponding sound
+            buttonTuple.0.setTitle("•")
+            self?.playSoundFor(path: buttonTuple.1)
+
             
             //then, wait again before removing the title
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                button.setTitle("")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
+                buttonTuple.0.setTitle("")
                 self?.playNextSequenceItem()
             })
         }
@@ -86,8 +105,13 @@ class InterfaceController: WKInterfaceController {
     func addToSequence() {
         //add a random button to the sequence
         //we're explicitly stating type here to remove the optionaity that would normally be present
-        let colors: [WKInterfaceButton] = [redButton, yellowButton, blueButton, greenButton]
-        sequence.append(colors.randomElement()!)
+        let colors = [redButton, yellowButton, blueButton, greenButton]
+        let sounds = [redFXPath, yellowFXPath, blueFXPath, greenFXPath]
+        
+        
+        let randomElement = Int.random(in: 0..<colors.count)
+        sequence.append(colors[randomElement]!)
+        sequenceSound.append(sounds[randomElement])
         
         //start the flashing at the beginning
         sequenceIndex = 0
@@ -101,17 +125,61 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
+    //MARK:- Audio playback method
+    func playSoundFor(path: String) {
+        do {
+            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+        } catch let error {
+            fatalError("Could not playback sound: \(error.localizedDescription)")
+        }
+        
+        player.play()
+    }
+    
+    //MARK:- Animation method
+    
+    //MARK:- Check player input
+    func makeMove(_ color: WKInterfaceButton) {
+        //player can't touch while the game is in watch mode
+        guard isWatching == false else { return }
+        
+        if sequence[sequenceIndex] == color {
+            //correct input from player
+            sequenceIndex += 1
+            
+            if sequenceIndex == sequence.count {
+                //the end of the array, add new buttons for sequence
+                addToSequence()
+            }
+        } else {
+            //wrong input from player, game over
+            let playAgain = WKAlertAction(title: "Play Again?", style: .default) {
+                self.startNewGame()
+            }
+            
+            presentAlert(withTitle: "Game Over!", message: "You scored \(sequence.count - 1).", preferredStyle: .actionSheet, actions: [playAgain])
+        }
+    }
+    
     //MARK:- IBActions
     @IBAction func redTapped() {
+        playSoundFor(path: redFXPath)
+        makeMove(redButton)
     }
     
     @IBAction func greenTapped() {
+        playSoundFor(path: greenFXPath)
+        makeMove(greenButton)
     }
     
     @IBAction func blueTapped() {
+        playSoundFor(path: blueFXPath)
+        makeMove(blueButton)
     }
     
     @IBAction func yellowTapped() {
+        playSoundFor(path: yellowFXPath)
+        makeMove(yellowButton)
     }
     
     
