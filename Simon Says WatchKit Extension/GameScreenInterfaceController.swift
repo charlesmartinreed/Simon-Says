@@ -30,7 +30,7 @@ class GameScreenInterfaceController: WKInterfaceController {
         }
     }
     
-    var highScore: Int!
+    var highScore = UserDefaults.standard.value(forKey: "highScore") as? Int ?? 0
     
     //which buttons are in this round's simon sequence and the indices of the ones the user must tap, respectively
     var sequence = [WKInterfaceButton]()
@@ -52,7 +52,8 @@ class GameScreenInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        highScore = UserDefaults.standard.value(forKey: "highScore") as? Int ?? 0
+        //highScore = UserDefaults.standard.value(forKey: "highScore") as? Int ?? 0
+        print(highScore)
         
         initializeAVSession()
         startNewGame()
@@ -95,13 +96,15 @@ class GameScreenInterfaceController: WKInterfaceController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             [weak self] in
             //mark this button as being active and play the corresponding sound
-            buttonTuple.0.setTitle("•")
+            self?.animate(withDuration: 0.5, animations: {
+                buttonTuple.0.setAlpha(0.2)
+            })
             self?.playSoundFor(path: buttonTuple.1)
 
             
             //then, wait again before removing the title
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
-                buttonTuple.0.setTitle("")
+                buttonTuple.0.setAlpha(1)
                 self?.playNextSequenceItem()
             })
         }
@@ -170,7 +173,7 @@ class GameScreenInterfaceController: WKInterfaceController {
             
             if roundScore > highScore {
                 highScore = roundScore
-                UserDefaults.standard.set("\(roundScore)", forKey: "highScore")
+                UserDefaults.standard.set(roundScore, forKey: "highScore")
                 
                 presentAlert(withTitle: "A new high score!", message: "You scored \(roundScore).", preferredStyle: .actionSheet, actions: [playAgain, quitGame])
             } else {
